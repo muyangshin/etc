@@ -64,7 +64,9 @@ lm.lwage5 <- lm(paste0("lwage ~ ", paste(vars, collapse = "+")), data = df.card)
 # Print
 stargazer(lm.lwage, lm.lwage2, lm.lwage3, lm.lwage4, lm.lwage5,
           type = "text", title = "Regression 1.3", out = "results/reg_card.tex",
-          column.sep.width = "0pt")
+          column.sep.width = "0pt", 
+          keep = 1:7, 
+          keep.stat = c("n", "rsq"))
 
 
 # 1.4 IV ------------------------------------------------------------------
@@ -97,7 +99,8 @@ lm.lwage.iv4 <- ivreg(paste0("lwage ~", paste(vars, collapse = "+"),
 
 # Print
 stargazer(lm.lwage.iv1, lm.lwage.iv2, lm.lwage.iv3, lm.lwage.iv4, 
-          type = "text", title = "Regression 1.4", out = "results/reg_card_2.tex", column.sep.width = "0pt")
+          type = "text", title = "Regression 1.4", out = "results/reg_card_2.tex", 
+          column.sep.width = "0pt", keep = 1:7, keep.stat = c("n", "rsq"))
 
 
 # Hamermesh ---------------------------------------------------------------
@@ -114,7 +117,7 @@ df.ham.summary <- df.ham %>%
             f_inspired = round(sum(inspired) * 100 / first(no_citations), 1)
             )
 
-stargazer(df.ham.summary, summary = F, out = "results/ham_summary.tex")
+stargazer(df.ham.summary, summary = F, type = "text", out = "results/ham_summary.tex")
 
 # 2
 df.ham2 <- df.ham %>%
