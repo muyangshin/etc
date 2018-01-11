@@ -1,0 +1,5 @@
+- data_raw/: Raw data files used to produce clean data
+- data_clean/data.csv: Clean data
+- code/main.R: R code to assemble the data and produce analysis
+- report.Rmd: R markdown file used to write report.pdf. It contains both writeups and codes.
+- report.pdf: Report answering the questions
